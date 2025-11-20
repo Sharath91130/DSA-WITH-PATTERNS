@@ -1,43 +1,48 @@
 package TwoPointer;
 
+import java.util.Arrays;
+
 public class Reverse_StringII_541 {
 
     public static String reverseStr(String s, int k) {
+        if(s.length()==k){
+            return reverse(s);
+        }
 
         int i=0;
         int j=k;
-        int m=k;
-        int n=m+k;
+        char[] charArray = s.toCharArray();
 
         String ans="";
 
         while(j-s.length()!=k && j<s.length()){
+            System.out.println(i + " "+j);
 
-            System.out.println(i +" "+ j);
-            System.out.println(s.substring(i,j));
-            ans+=reverse(s.substring(i,j));
-
-            System.out.println("reverse string  of " +s.substring(i,j)+" "+ reverse(s.substring(i,j)));
+                     int n=j-1;
+                   for(int m=i;m<n;m++){
 
 
-            System.out.println("after reversing "+s.substring(m,n));
+                       char temp=charArray[m];
+                       charArray[m]=charArray[n];
+                       charArray[n]=temp;
+                       n--;
 
+                   }
 
-
+            System.out.println(Arrays.toString(charArray));
             i=j+k;
           //  ans+=s.substring(i+k,i-1);
 
             j=i+k;
-            m=j+1;
-            n=m+k;
+
 
         }
-        ans+=s.substring(ans.length());
-        return ans;
+
+        return new String(charArray);
     }
 
     public static void main(String[] args) {
-        System.out.println("ans "+Reverse_StringII_541.reverseStr("abcdefg",2));
+        System.out.println("ans "+Reverse_StringII_541.reverseStr("abcdefghijklmn",3));
     }
     public static String reverse(String s){
 
