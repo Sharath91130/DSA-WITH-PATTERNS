@@ -26,6 +26,7 @@ public class ContainerWithMostWater_11 {
 
             }
             else {
+                right-=1;
                 while (height[right]>height[left]){
                     right-=1;
                 }

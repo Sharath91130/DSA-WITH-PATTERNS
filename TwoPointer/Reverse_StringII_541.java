@@ -42,7 +42,12 @@ public class Reverse_StringII_541 {
     }
 
     public static void main(String[] args) {
-        System.out.println("ans "+Reverse_StringII_541.reverseStr("abcdefghijklmn",3));
+
+        String m="abcabcabcabc";
+
+               String s=m+m;
+        System.out.println(s.substring(1,s.length()-1));
+        System.out.println(s.substring(1, s.length() - 1).contains(m));
     }
     public static String reverse(String s){
 
